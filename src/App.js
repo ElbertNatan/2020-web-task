@@ -7,18 +7,18 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={loho} className="App-logo" height="600px" alt="logo" />
+        <img src={loho} className="App-logo" height="900px" alt="logo" />
         <p>
-         Elbert God
+         Elbert programator
         </p>
      
         <a
           className="App-link"
-          href="https://reactjs.org"
+          href="https://www.youtube.com/watch?v=-i3mnXuTlmI"
           target="_blank"
           rel="noopener noreferrer"
         >
-         Aprenda forte de noite
+         Aprenda a jogar forte de noite
         </a>
       </header>
     </div>
