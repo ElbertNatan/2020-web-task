@@ -1,28 +1,40 @@
-import React from 'react';
-import logo from './logo.svg';
-import loho from './loho.jpg';
-import './App.css';
+import React, { useState } from 'react'
+import UserTable from '../src/UserTables'
+import AddUserForm from '../src/addUsersforms'
 
-function App() {
+const App = () => {
+  const usersData = [
+    { id: 1, name: 'Tania', username: 'floppydiskette' },
+    { id: 2, name: 'Craig', username: 'siliconeidolon' },
+    { id: 3, name: 'Ben', username: 'benisphere' },
+  ]
+
+  const [users, setUsers] = useState(usersData)
+
+  const addUser = user => {
+    user.id = users.length + 1
+    setUsers([...users, user])
+  }
+  const deleteUser = id => {
+    setUsers(users.filter(user => user.id !== id))
+  }
+  
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={loho} className="App-logo" height="900px" alt="logo" />
-        <p>
-         Elbert programator
-        </p>
-     
-        <a
-          className="App-link"
-          href="https://www.youtube.com/watch?v=-i3mnXuTlmI"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-         Aprenda a jogar forte de noite
-        </a>
-      </header>
+    <div className="container">
+      <h1>CRUD App with Hooks</h1>
+      <div className="flex-row">
+        <div className="flex-large">
+          <h2>Add user</h2>
+          <AddUserForm addUser={addUser} />
+        </div>
+        <div className="flex-large">
+          <h2>View users</h2>
+          <UserTable users={users} deleteUser={deleteUser} />
+        </div>
+      </div>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
